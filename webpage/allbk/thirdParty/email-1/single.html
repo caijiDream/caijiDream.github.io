@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	
+	<title>Blog postCopyright &copy; 2017.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></title>
+
+	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
+	
+	<!-- Bootstrap -->
+	<link href="assets/css/bootstrap.no-icons.min.css" rel="stylesheet">
+	<!-- Icon font -->
+	<link href="assets/css/font-awesome.css" rel="stylesheet">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="assets/css/css.css">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="assets/css/styles.css">
+
+	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
+</head>
+<body>
+
+<header id="header">
+	<div id="head" class="parallax" parallax-speed="1">
+		<h1 id="logo" class="text-center">
+			<img class="img-circle" src="assets/images/guy.jpg" alt="">
+			<span class="title">caijihaomengBlog</span>
+			<span class="tagline">A creative man is motivated by the desire to achieve, not by the desire to beat others.</span>
+		</h1>
+	</div>
+
+	<nav class="navbar navbar-default navbar-sticky">
+		<div class="container-fluid">
+			
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			</div>
+			
+			<div class="navbar-collapse collapse">
+				
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li class="dropdown">
+						<ul class="dropdown-menu">
+							<li><a href="sidebar-left.html">Left Sidebar</a></li>
+							<li><a href="sidebar-right.html">Right Sidebar</a></li>
+							<li><a href="single.html">Blog Post</a></li>
+						</ul>
+					</li>
+					<li class="active"><a href="blog.html">Blog</a></li>
+				</ul>
+			
+			</div><!--/.nav-collapse -->			
+		</div>	
+	</nav>
+</header>
+
+<main id="main">
+
+	<div class="container">
+		
+		<div class="row topspace">
+			<div class="col-sm-8 col-sm-offset-2">
+															
+ 				<article class="post">
+					<header class="entry-header">
+					  <div class="entry-meta"> 
+ 							<span class="posted-on"><time class="entry-date published" date="2013-06-17">2018/1/30</time></span>			
+ 						</div> 
+ 						<h1 class="entry-title">COPY</h1>
+                    <p>链接：https://pan.baidu.com/s/1eTl5jpg 密码：3cf2</p>
+					</header> 
+				  <div class="entry-content"> 
+                        <img alt="" src="assets/images/mac.jpg">
+						<p>&nbsp;</p>
+					  <p>
+package youjian163;<br/>
+import java.util.Properties;<br/>
+
+import javax.mail.Authenticator;<br/>
+import javax.mail.Message;<br/>
+import javax.mail.MessagingException;<br/>
+import javax.mail.PasswordAuthentication;<br/>
+import javax.mail.Session;<br/>
+import javax.mail.Transport;<br/>
+import javax.mail.internet.InternetAddress;<br/>
+import javax.mail.internet.MimeMessage;<br/>
+
+public class test {<br/>
+	 public static void main(String [] args)<br/>
+	   {<br/>
+	      // 收件人电子邮箱<br/>
+	      String to = "x584317396@163.com";<br/>
+	 
+	      // 发件人电子邮箱<br/>
+	      String from = "aw2559485521@163.com";<br/>
+	 
+	      // 指定发送邮件的主机为 smtp.qq.com<br/>
+	      String host = "smtp.163.com";  //QQ 邮件服务器<br/>
+	 
+	      // 获取系统属性<br/>
+	      Properties properties = System.getProperties();<br/>
+	 
+	      // 设置邮件服务器<br/>
+	      properties.setProperty("mail.smtp.host", host);<br/>
+	 
+	      properties.put("mail.smtp.auth", "true");<br/>
+	      // 获取默认session对象<br/>
+	      Session session = Session.getDefaultInstance(properties,new Authenticator(){<br/>
+	        public PasswordAuthentication getPasswordAuthentication()<br/>
+	        {<br/>
+	         return new PasswordAuthentication("aw2559485521@163.com", "aw2559485521"); //发件人邮件用户名、密码为smtp服务设置时密码(不是账号登录密码)<br/>
+	        }<br/>
+	       });<br/>
+	 
+	      try{<br/>
+	         // 创建默认的 MimeMessage 对象<br/>
+	         MimeMessage message = new MimeMessage(session);<br/>
+	 
+	         // Set From: 头部头字段<br/>
+	         message.setFrom(new InternetAddress(from));<br/>
+	 
+	         // Set To: 头部头字段<br/>
+	         message.addRecipient(Message.RecipientType.TO,
+	                                  new InternetAddress(to));<br/>
+	 
+	         // Set Subject: 头部头字段<br/>
+	         message.setSubject("2222");<br/>
+	 
+	         // 设置消息体
+	         message.setText("This");<br/>
+	 
+	         // 发送消息<br/>
+	         Transport.send(message);<br/>
+	         System.out.println("Sent message successfully3....from runoob.com");<br/>
+	      }catch (MessagingException mex) {<br/>
+	         mex.printStackTrace();
+	      }<br/>
+	   }<br/>
+}<br/>
+					  </p>
+					</div> 
+				</article><!-- #post-## -->
+
+			</div> 
+		</div> <!-- /row post  -->
+
+		
+					      </div>
+					    </li>
+				    </ol>
+					
+
+			  </div>
+			</div>
+		</div> <!-- /row comments -->
+		<div class="clearfix"></div>
+
+	</div>	<!-- /container -->
+
+</main>
+
+<footer id="footer" class="topspace">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Contact</h3>
+				<div class="widget-body">
+					<p>+2559485521<br>
+						<a href="mailto:#">2559485521@qq.com</a><br>
+						<br>
+					略</p>	
+				</div>
+			</div>
+
+
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Text widget</h3>
+				<div class="widget-body">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, nihil natus explicabo ipsum quia iste aliquid repellat eveniet velit ipsa sunt libero sed aperiam id soluta officia asperiores adipisci maxime!</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, nihil natus explicabo ipsum quia iste aliquid repellat eveniet velit ipsa sunt libero sed aperiam id soluta officia asperiores adipisci maxime!</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Form widget</h3>
+				<div class="widget-body">
+					<p>+2559485521<br>
+						<a href="mailto:#">2559485521@qq.com</a><br>
+						<br>
+					l略</p>	
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+<footer id="underfooter">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p>略</p>
+				</div>
+			</div>
+
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p class="text-right">略</p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="assets/js/template.js"></script>
+</body>
+</html>
