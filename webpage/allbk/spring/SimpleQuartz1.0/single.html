@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	
+	<title>菜鸡好梦</title>
+
+	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
+	
+	<!-- Bootstrap -->
+	<link href="assets/css/bootstrap.no-icons.min.css" rel="stylesheet">
+	<!-- Icon font -->
+	<link href="assets/css/font-awesome.css" rel="stylesheet">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="assets/css/css.css">
+	<!-- Custom styles -->
+	<link rel="stylesheet" href="assets/css/styles.css">
+
+	<!--[if lt IE 9]> <script src="assets/js/html5shiv.js"></script> <![endif]-->
+</head>
+<body>
+
+<header id="header">
+	<div id="head" class="parallax" parallax-speed="1">
+		<h1 id="logo" class="text-center">
+			<img class="img-circle" src="assets/images/guy.jpg" alt="">
+			<span class="title">caijihaomengBlog</span>
+			<span class="tagline">A creative man is motivated by the desire to achieve, not by the desire to beat others.</span>
+		</h1>
+	</div>
+
+	<nav class="navbar navbar-default navbar-sticky">
+		<div class="container-fluid">
+			
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+			</div>
+			
+			<div class="navbar-collapse collapse">
+				
+				<ul class="nav navbar-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li class="dropdown">
+						<ul class="dropdown-menu">
+							<li><a href="sidebar-left.html">Left Sidebar</a></li>
+							<li><a href="sidebar-right.html">Right Sidebar</a></li>
+							<li><a href="single.html">Blog Post</a></li>
+						</ul>
+					</li>
+					<li class="active"><a href="blog.html">Blog</a></li>
+				</ul>
+			
+			</div><!--/.nav-collapse -->			
+		</div>	
+	</nav>
+</header>
+
+<main id="main">
+
+	<div class="container">
+		
+		<div class="row topspace">
+			<div class="col-sm-8 col-sm-offset-2">
+															
+ 				<article class="post">
+					<header class="entry-header">
+ 						<div class="entry-meta"> 
+ 							<span class="posted-on"><time class="entry-date published" date="2013-06-17">2018/3/2</time></span>			
+ 						</div> 
+ 						<h1 class="entry-title">COPY</h1>
+                        <p>maven jar</p>
+                        <p>
+                        	&lt;dependency><br/>
+								&lt;groupId>org.quartz-scheduler &lt;/groupId><br/>
+								&lt;artifactId>quartz  &lt;/artifactId><br/>
+								&lt;version>1.8.5 &lt;/version><br/>
+							</dependency> <br/>
+                       </p>
+					</header> 
+				  <div class="entry-content"> 
+                        <img alt="" src="assets/images/mac.jpg">
+						<p>&nbsp;</p>
+					  <p>
+package Quartz;<br/>
+
+import java.util.Date;<br/>
+
+import org.quartz.JobDetail;  <br/>
+
+import org.quartz.Scheduler;<br/>
+import org.quartz.SchedulerException;<br/>
+import org.quartz.SchedulerFactory;  <br/>
+
+import org.quartz.SimpleTrigger;  <br/>
+
+import org.quartz.impl.StdSchedulerFactory; <br/>
+public class SimpleTriggerRunner {<br/>
+	/**<br/>
+	 * 简单介绍<br/>
+	 * Scheduler：调度器。所有的调度都是由它控制<br/>
+	 * Trigger： 定义触发的条件  例子中，它的类型是SimpleTrigger，<br/>
+	 * JobDetail & Job： JobDetail 定义的是任务数据，而真正的执行逻辑是在Job中<br/>
+	 *<br/>
+	 */<br/>
+	public static void main(String args[]) { <br/>
+		/**<br/>
+		 * 写法1<br/>
+		 */<br/>
+		try {  <br/>
+			//①创建一个JobDetail实例，指定SimpleJob  <br/>
+			JobDetail jobDetail = new JobDetail("job1_1","jGroup1", SimpleJob.class);  <br/>
+			
+			
+			 //加入属性name到JobDataMap （通过这个可以让simpleJob.class中取到值    不过只会在该jobDetail中取到值）<br/>
+			jobDetail.getJobDataMap().put("name", "quertz");<br/>
+
+			//②通过SimpleTrigger定义调度规则：马上启动，每2秒运行一次，共运行100次 <br/> 
+			SimpleTrigger simpleTrigger = new SimpleTrigger("trigger1_1","tgroup1");<br/>  
+			//开始时间<br/>
+			simpleTrigger.setStartTime(new Date());  <br/>
+			//结束时间<br/>
+//			simpleTrigger.setEndTime(new Date(System.currentTimeMillis()+100*11));<br/>
+			//间隔时间<br/>
+			simpleTrigger.setRepeatInterval(100); <br/> 
+			//执行次数<br/>
+			simpleTrigger.setRepeatCount(11);  <br/>
+			
+			
+			
+
+			//③通过SchedulerFactory获取一个调度器实例<br/>  
+			SchedulerFactory schedulerFactory = new StdSchedulerFactory();<br/>  
+			//创建调度<br/>
+			Scheduler scheduler = schedulerFactory.getScheduler();  <br/>
+			
+			scheduler.scheduleJob(jobDetail, simpleTrigger);//④ 注册并进行调度<br/>  
+			
+			scheduler.start();//⑤调度启动  <br/>
+			//调度关闭如果现在立马关闭会立马停止调度<br/>
+//			scheduler.shutdown();<br/>
+			
+		} catch (Exception e) {  <br/>
+			e.printStackTrace(); <br/> 
+		} <br/>
+		
+		
+		<br/>
+        <br/>
+        <br/>
+		/**<br/>
+		 * 写法2<br/>
+		 */<br/>
+		
+//		//第一步：创建一个JobDetail实例  <br/>
+//        JobDetail jobDetail = new JobDetail("j_job1","j_group12", SimpleJob.class);  <br/>
+//        SimpleTrigger simpleTrigger = new SimpleTrigger("trigger1_1","tgroup1");<br/>  
+//        simpleTrigger.setStartTime(new Date());//开始运行时间  <br/>
+////        simpleTrigger.setEndTime(new Date(System.currentTimeMillis()+5000));<br/>
+//        simpleTrigger.setRepeatInterval(100); //运行间隔单位为毫秒  <br/>
+//        simpleTrigger.setRepeatCount(10);     //运行次数 <br/>
+//        simpleTrigger.setJobGroup("j_group12");  <br/>
+//        simpleTrigger.setJobName("j_job1");  <br/>
+//        //第三步：通过SchedulerFactory获取一个调度器实例  <br/>
+//        SchedulerFactory schedulerFactory = new StdSchedulerFactory(); <br/> 
+//        Scheduler  scheduler = null ;<br/>
+//        //第四步：将job跟trigger注册到scheduler中进行调度<br/>  
+//        try {<br/>
+//        	scheduler = schedulerFactory.getScheduler(); <br/>
+//        	//第一个参数为triggerName（SimpleTrigger对象的第一个参数）Name  第二个参数为triggerGroup(SimpleTrigger对象的第二个参数)Group<br/>
+//        	int state = scheduler.getTriggerState("trigger1_1", "tgroup1");<br/>
+//        	System.out.println("状态"+state);<br/>
+//			scheduler.addJob(jobDetail, true);<br/>
+//<br/>
+//	        scheduler.scheduleJob(simpleTrigger);  <br/>
+//<br/>
+//	        //第五步：调度启动  <br/>
+//	        scheduler.start();  <br/>
+//		} catch (SchedulerException e) {<br/>
+//			// TODO Auto-generated catch block<br/>
+//			e.printStackTrace();<br/>
+//		}  <br/>
+	}  <br/>
+}<br/>
+
+					  </p>
+                      
+					</div> 
+				</article><!-- #post-## -->
+
+			</div> 
+		</div> <!-- /row post  -->
+
+		
+					      </div>
+					    </li>
+				    </ol>
+					
+
+			  </div>
+			</div>
+		</div> <!-- /row comments -->
+		<div class="clearfix">
+        </div>
+<center class="">
+			<ul class="pagination">
+				<li class="disabled"><a href="">&laquo;</a></li>
+				<li class="active"><a href="single.html">1</a></li>
+				<li><a href="single2.html">2</a></li>
+				<li><a href="single2.html">&raquo;</a></li>
+			</ul>
+		</center>
+	</div>	<!-- /container -->
+
+</main>
+
+<footer id="footer" class="topspace">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Contact</h3>
+				<div class="widget-body">
+					<p>+2559485521<br>
+						<a href="#">2559485521@qq.com</a><br>
+						<br>
+					略</p>	
+				</div>
+			</div>
+
+
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Text widget</h3>
+				<div class="widget-body">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, nihil natus explicabo ipsum quia iste aliquid repellat eveniet velit ipsa sunt libero sed aperiam id soluta officia asperiores adipisci maxime!</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, nihil natus explicabo ipsum quia iste aliquid repellat eveniet velit ipsa sunt libero sed aperiam id soluta officia asperiores adipisci maxime!</p>
+				</div>
+			</div>
+
+			<div class="col-md-3 widget">
+				<h3 class="widget-title">Form widget</h3>
+				<div class="widget-body">
+					<p>+2559485521<br>
+						<a href="#">2559485521@qq.com</a><br>
+						<br>
+					l略</p>	
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+<footer id="underfooter">
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p>略</p>
+				</div>
+			</div>
+
+			<div class="col-md-6 widget">
+				<div class="widget-body">
+					<p class="text-right">略</p>
+				</div>
+			</div>
+
+		</div> <!-- /row of widgets -->
+	</div>
+</footer>
+
+
+
+<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/template.js"></script>
+</body>
+</html>
